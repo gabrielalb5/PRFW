@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contato</title>
+<style>
+	input{
+		display:block;
+		margin-bottom:3px;
+	}
+	
+	span{
+		color:red;
+		font-size:14px;
+		margin-bottom:10px;
+	}
+</style>
+</head>
+<body>
+	<h1>Novo Contato</h1>
+	<form method="post" th:action="@{/contato/salvar}" th:object="${contato}">
+		<label>Nome</label>
+		<input type="text" th:field="*{nome}">
+		<span th:if="#{fields.hasErrors('nome')}" th:errors="*{nome}"><br>erro</span>
+		<br>
+		
+		<label>Email</label>
+		<input type="text" th:field="*{email}">
+		<span th:if="#{fields.hasErrors('email')}" th:errors="*{email}"><br>erro</span>
+		<br>
+		
+		<label>Idade</label>
+		<input type="text" th:field="*{idade}">
+		<span th:if="#{fields.hasErrors('idade')}" th:errors="*{idade}"><br>erro</span>
+		<br>
+		
+		<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>
