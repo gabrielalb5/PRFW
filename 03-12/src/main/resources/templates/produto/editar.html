@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loja WebFrameworks</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/estilos.css}">
+	</head>
+	
+	<body>
+		<h1>Loja WebFrameworks</h1>
+		
+		<h2>Cadastro de produto</h2>
+		<form method="post" 
+			th:action="@{/produto/salvar}"
+			th:object="${produto}">
+			<label>ID:</label>
+			<input type="text" th:field="*{id}" readonly>
+			<span class="error" th:if="#{fields.hasErrors('id')}" th:errors="*{id}">erro</span>
+			<br>
+			
+			<label>Descrição:</label>
+			<input type="text" th:field="*{descricao}" required>
+			<span class="error" th:if="#{fields.hasErrors('descricao')}" th:errors="*{descricao}">erro</span>
+			<br>
+
+			<label>Preço:</label>
+			<input type="text" th:field="*{preco}" required>
+			<span class="error" th:if="#{fields.hasErrors('preco')}" th:errors="*{preco}">erro</span>
+			
+			<br>
+			<button type="submit">Enviar</button>
+		</form>
+		
+	</body>
+</html>
