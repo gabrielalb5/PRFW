@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Registro de ocorrências de alunos</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Registro de ocorrências de alunos</h1>
+		
+		<p th:if="${#lists.isEmpty(ocorrencias)}">
+			A consulta não gerou resultados.
+		</p>
+		
+		<table border="1" th:if="${not #lists.isEmpty(ocorrencias)}">
+			<tr>
+				<th>ID</th>
+				<th>Aluno</th>
+				<th>Justificativa</th>
+				<th>Data e Hora</th>
+				<th>Ações</th>
+			</tr>
+			
+			<tr th:each="o : ${ocorrencias}">
+				<td th:text="${o.id}">X</td>
+				<td th:text="${o.nome_aluno}">Aluno</td>
+				<td th:text="${o.justificativa}">Nenhuma</td>
+				<td th:text="${#temporals.format(o.horario, 'dd/MM/yyyy HH:mm')}"></td>
+				<td>
+					<a th:href="@{'/ocorrencia/' + ${o.id} + '/editar'}">Editar</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Registro de ocorrências de alunos</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Registro de ocorrências de alunos</h1>
+		<p>Olá, <span th:text="${nome}">usuário</span>!</p>
+		
+		<ul>
+			<li><a th:href="@{/ocorrencia/novo}">Novo</a></li>
+			<li><a th:href="@{/ocorrencia/listar}">Listar</a></li>
+		</ul>
+	</body>
+</html>

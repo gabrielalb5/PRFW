@@ -1,0 +1,67 @@
+package edu.ifsp.gestaoaluno.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.ifsp.gestaoaluno.modelo.Ocorrencia;
+import edu.ifsp.gestaoaluno.persistence.OcorrenciaRepositorio;
+import jakarta.validation.Valid;
+
+@Controller
+@RequestMapping("/ocorrencia")
+public class OcorrenciaController {
+	private OcorrenciaRepositorio repo;
+	
+	public OcorrenciaController(OcorrenciaRepositorio repo) {
+		this.repo = repo;
+	}
+	
+	@GetMapping("/novo")
+	public String novo(Model model) {
+		model.addAttribute("ocorrencia", new Ocorrencia());
+		return "ocorrencia/editar";
+	}
+	
+	@GetMapping("/{id}/editar")
+	public String editar(@PathVariable(name="id") Integer id, Model model) {
+		Ocorrencia ocorrencia = repo.findById(id).get();
+		model.addAttribute("ocorrencia", ocorrencia);
+		
+		return "ocorrencia/editar";
+	}
+	
+	@PostMapping("/salvar")
+	public String salvar(@Valid Ocorrencia ocorrencia, Errors errors) {
+		if (errors.hasErrors()) {
+			for (var e : errors.getAllErrors()) {
+				System.out.println(e);
+			}
+			return "ocorrencia/editar";
+		}
+		System.out.println("Salvando ocorreência...");
+		
+		System.out.println("ID: " + ocorrencia.getId());
+		System.out.println("Nome: " + ocorrencia.getNome_aluno());
+		System.out.println("Justificativa: " + ocorrencia.getJustificativa());
+		System.out.println("Data e hora: " + ocorrencia.getHorario());
+		
+		ocorrencia = repo.save(ocorrencia);
+		
+		return "redirect:/ocorrencia/%d/editar".formatted(ocorrencia.getId());
+	}
+	
+	@GetMapping("/listar")
+	public String listar(Model model) {
+		
+		Iterable<Ocorrencia> ocorrencias = repo.findAll();		
+		model.addAttribute("ocorrencias", ocorrencias);
+		
+		return "ocorrencia/listar";
+	}
+	
+}
