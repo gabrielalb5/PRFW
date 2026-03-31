@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.ifsp.loja.persistence.ProdutoTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2026-03-26T23:38:59.129Z" hostname="positivo-C4400" time="0.021">
+  <properties/>
+  <testcase name="buscaPeloId()" classname="edu.ifsp.loja.persistence.ProdutoTest" time="0.011"/>
+  <testcase name="saveNew()" classname="edu.ifsp.loja.persistence.ProdutoTest" time="0.01">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;java.lang.Integer.intValue()&quot; because &quot;this.id&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.Integer.intValue()&quot; because &quot;this.id&quot; is null
+	at edu.ifsp.loja.modelo.Produto.getId(Produto.java:17)
+	at edu.ifsp.loja.persistence.ProdutoTest.saveNew(ProdutoTest.java:61)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[2026-03-26T20:38:59.125-03:00  INFO 13144 --- [Loja WebFrameworks] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.ifsp.loja.persistence.ProdutoTest]: ProdutoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-26T20:38:59.127-03:00  INFO 13144 --- [Loja WebFrameworks] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.ifsp.loja.LojaWebFrameworksApplication for test class edu.ifsp.loja.persistence.ProdutoTest
+Hibernate: select p1_0.id,p1_0.descricao,p1_0.preco from produto p1_0 where p1_0.id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

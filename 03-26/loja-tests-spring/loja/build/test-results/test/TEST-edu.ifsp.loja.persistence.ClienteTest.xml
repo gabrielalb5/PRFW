@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.ifsp.loja.persistence.ClienteTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-03-26T23:38:58.919Z" hostname="positivo-C4400" time="0.203">
+  <properties/>
+  <testcase name="updateExisting()" classname="edu.ifsp.loja.persistence.ClienteTest" time="0.08"/>
+  <testcase name="findAll()" classname="edu.ifsp.loja.persistence.ClienteTest" time="0.07"/>
+  <testcase name="findById()" classname="edu.ifsp.loja.persistence.ClienteTest" time="0.007"/>
+  <testcase name="saveNew()" classname="edu.ifsp.loja.persistence.ClienteTest" time="0.043"/>
+  <system-out><![CDATA[2026-03-26T20:38:58.908-03:00  INFO 13144 --- [Loja WebFrameworks] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.ifsp.loja.persistence.ClienteTest]: ClienteTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-26T20:38:58.914-03:00  INFO 13144 --- [Loja WebFrameworks] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.ifsp.loja.LojaWebFrameworksApplication for test class edu.ifsp.loja.persistence.ClienteTest
+Hibernate: select c1_0.id,c1_0.ativo,c1_0.email,c1_0.nome from cliente c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.ativo,c1_0.email,c1_0.nome from cliente c1_0
+Hibernate: select c1_0.id,c1_0.ativo,c1_0.email,c1_0.nome from cliente c1_0 where c1_0.id=?
+Hibernate: insert into cliente (ativo,email,nome) values (?,?,?)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

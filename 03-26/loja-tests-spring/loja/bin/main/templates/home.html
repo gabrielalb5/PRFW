@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Loja WebFrameworks</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Loja WebFrameworks</h1>
+		<p>Olá, <span th:text="${nome}">usuário</span>!</p>
+		
+		<ul>
+			<li>
+			Clientes
+				<ul>
+					<li><a th:href="@{/cliente/novo}">Novo</a></li>
+					<li><a th:href="@{/cliente/listar}">Listar</a></li>
+				</ul>
+			</li>
+			<li>
+			Produtos
+				<ul>
+					<li><a th:href="@{/produto/listar}">Listar</a></li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>
